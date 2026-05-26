@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othello AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div id="logo-container">
+                <img id="logo" src="assets/othelloLogo.png" alt="Othello AI">
+                <h1 id="title-link">Othello AI</h1>
+            </div>
+            <nav id="main-nav">
+                <button id="leaderboard-btn" class="nav-item" type="button">Leaderboard</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="game-container">
+                <div id="board-container">
+                    <div id="board" aria-label="Othello board"></div>
+                </div>
+                <aside id="game-info">
+                    <h2>Game Info</h2>
+                    <div id="score">Black: 2 | White: 2</div>
+                    <div id="turn">Turn: Black</div>
+                    <div id="game-controls">
+                        <button id="new-game-btn" type="button">New Game</button>
+                        <button id="save-game-btn" type="button">Save Game</button>
+                        <button id="load-game-btn" type="button">Load Game</button>
+                        <label>
+                            <input type="checkbox" id="analysis-toggle">
+                            Show AI Analysis
+                        </label>
+                        <label>
+                            <input type="checkbox" id="detailed-analysis-toggle">
+                            Show Detailed Analysis
+                        </label>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="detailed-analysis-view" class="hidden">
+                <h2>Detailed Analysis</h2>
+                <div id="dav-content"></div>
+            </section>
+        </main>
+
+        <div id="message-region" aria-live="polite"></div>
+
+        <div id="new-game-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Start a New Game</h3>
+                <form id="new-game-form">
+                    <label for="player-color">Your Color:</label>
+                    <select id="player-color" name="player-color">
+                        <option value="-1">Black</option>
+                        <option value="1">White</option>
+                    </select>
+
+                    <label for="ai-level">AI Difficulty:</label>
+                    <select id="ai-level" name="ai-level">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="expert">Expert</option>
+                    </select>
+
+                    <div class="modal-actions">
+                        <button type="submit">Start Game</button>
+                        <button type="button" class="close-modal-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="leaderboard-modal" class="modal hidden">
+            <div class="modal-content wide">
+                <h3>Leaderboard</h3>
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Draws</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button type="button" class="close-modal-btn full-width">Close</button>
+            </div>
+        </div>
+
+        <div id="load-game-modal" class="modal hidden">
+            <div class="modal-content wide">
+                <h3>Load Game</h3>
+                <table id="saved-games-table">
+                    <thead>
+                        <tr>
+                            <th>Save Name</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button type="button" class="close-modal-btn full-width">Close</button>
+            </div>
+        </div>
+
+        <div id="save-game-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Save Game</h3>
+                <form id="save-game-form">
+                    <label for="save-name">Save Name:</label>
+                    <input id="save-name" name="save-name" type="text" required>
+                    <div class="modal-actions">
+                        <button type="submit">Save</button>
+                        <button type="button" class="close-modal-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/local-service.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
