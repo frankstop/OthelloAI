@@ -1,3 +1,8 @@
+# Why I'm Here
+
+OthelloAI was initially my capstone project during Summer 2 2025 under Renu Balyan.
+This is a recreation of the orinigal project since I don't like paying for anything on a monthly basis.
+
 # Othello AI
 
 Othello AI is a browser-playable Othello game with four AI opponents:
